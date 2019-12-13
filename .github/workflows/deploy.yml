@@ -23,4 +23,4 @@ jobs:
         # public keys of SSH servers
         known-hosts: "gomano.de"
     - name: Test ssh
-      run: ssh root@gomano.de 'touch /tmp/hello'
+      run: ssh -i /home/runner/.ssh/id_rsa root@gomano.de 'touch /tmp/hello'
