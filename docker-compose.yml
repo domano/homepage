@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+
+  traefik:
+    image: "traefik:latest"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myhttpchallenge.acme.httpchallenge=true"
+      - "--certificatesresolvers.myhttpchallenge.acme.httpchallenge.entrypoint=web"
+      #- "--certificatesresolvers.myhttpchallenge.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myhttpchallenge.acme.email=angor.mail@googlemail.com"
+      - "--certificatesresolvers.myhttpchallenge.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - acme-volume:/letsencrypt
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  homepage:
+    build:
+      context: ./frontend/homepage
+    container_name: "homepage"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.httpsredirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.homepage_insecure.rule=Host(`gomano.de`)"
+      - "traefik.http.routers.homepage_insecure.entrypoints=web"
+      - "traefik.http.routers.homepage_insecure.middlewares=httpsredirect@docker"
+      - "traefik.http.routers.homepage.rule=Host(`gomano.de`)"
+      - "traefik.http.routers.homepage.entrypoints=websecure"
+      - "traefik.http.routers.homepage.tls.certresolver=myhttpchallenge"
+
+volumes:
+  acme-volume:
