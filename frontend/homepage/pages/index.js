@@ -1,19 +1,18 @@
 import React from 'react'
 import Fade from 'react-reveal/Fade';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import './index.css'
-
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
+import '../styles/layout.css'
+import Layout from '../components/layout'
 const Home = () => (
-  <div className={"hero"}>
-      <Fade left cascade>
-          <div>
-              <h1>gomano.de</h1>
-              <h2>Hier entsteht eine Homepage</h2>
-          </div>
-      </Fade>
-
-    </div>
-
+    <Layout>
+        <Fade left cascade>
+            <div>
+                <h1 className={"is-size-3"}>gomano.de</h1>
+                <h2 className={"is-size-5"}>Hier entsteht eine Homepage</h2>
+            </div>
+        </Fade>
+    </Layout>
 
 )
 

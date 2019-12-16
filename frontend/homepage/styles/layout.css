@@ -1,0 +1,64 @@
+.fill {
+    display: flex;
+    flex-direction: row;
+align-items: stretch;
+}
+
+.bg {
+    background: linear-gradient(235deg, #000000, #a7a7a7, #393e52);
+    background-size: 600% 600%;
+
+    -webkit-animation: Background 0s ease infinite;
+    -moz-animation: Background 0s ease infinite;
+    -o-animation: Background 0s ease infinite;
+    animation: Background 0s ease infinite;
+
+}
+
+@-webkit-keyframes Background {
+    0% {
+        background-position: 0% 82%
+    }
+    50% {
+        background-position: 100% 19%
+    }
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-moz-keyframes Background {
+    0% {
+        background-position: 0% 82%
+    }
+    50% {
+        background-position: 100% 19%
+    }
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@-o-keyframes Background {
+    0% {
+        background-position: 0% 82%
+    }
+    50% {
+        background-position: 100% 19%
+    }
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@keyframes Background {
+    0% {
+        background-position: 0% 82%
+    }
+    50% {
+        background-position: 100% 19%
+    }
+    100% {
+        background-position: 0% 82%
+    }
+}
