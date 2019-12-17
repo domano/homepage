@@ -1,13 +1,10 @@
 import React from 'react'
-import 'react-bulma-components/dist/react-bulma-components.min.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
 import '../styles/layout.css'
-import Navigation from "../components/navigation";
-import YouTube from 'react-youtube-embed'
-import Tabs from "react-bulma-components/src/components/tabs"
-import Slide from "react-reveal/Slide";
-import {Container} from "react-bulma-components";
+import 'bulma'
 import Layout from "../components/layout";
+import Reveal from "react-reveal/Reveal";
+import Talk from "../components/talk";
 
 const Videos = [{
     title: "Warum Go?",
@@ -24,12 +21,15 @@ const Videos = [{
 
 const Home = () => (
     <Layout>
-        <Container style={{
-            overflowX: "hidden",
-            overflowY: "auto"
-        }}>
-            {Videos.map(e => <YouTube key={e.url} id={e.url}/>)}
-        </Container>
+        <section className="section">
+            <div className="tile is-ancestor is-vertical" style={{
+                overflowX: "hidden",
+                overflowY: "auto"
+            }}>
+
+                {Videos.map(e => <Reveal key={e.url} ><Talk url={e.url} title={e.title}/></Reveal>)}
+            </div>
+        </section>
     </Layout>
 )
 

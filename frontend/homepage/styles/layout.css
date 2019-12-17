@@ -4,61 +4,40 @@
 align-items: stretch;
 }
 
-.bg {
-    background: linear-gradient(235deg, #000000, #a7a7a7, #393e52);
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+body{
+    background: linear-gradient(270deg, #387d6b, #202d4e, #853935);
     background-size: 600% 600%;
-
-    -webkit-animation: Background 0s ease infinite;
-    -moz-animation: Background 0s ease infinite;
-    -o-animation: Background 0s ease infinite;
-    animation: Background 0s ease infinite;
-
+    -webkit-animation: AnimationName 42s ease infinite;
+    -moz-animation: AnimationName 42s ease infinite;
+    -o-animation: AnimationName 42s ease infinite;
+    animation: AnimationName 42s ease infinite;
+    width: 100%;
+    min-height: 100vh;
+    font-family: Arial, Helvetica;
+    -webkit-font-smoothing: antialiased;
 }
+.column-bg {
+    background-color: hsla(0,0%,100%,.5);
 
-@-webkit-keyframes Background {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
-}
-
-@-moz-keyframes Background {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
-}
-
-@-o-keyframes Background {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
-}
-
-@keyframes Background {
-    0% {
-        background-position: 0% 82%
-    }
-    50% {
-        background-position: 100% 19%
-    }
-    100% {
-        background-position: 0% 82%
-    }
 }

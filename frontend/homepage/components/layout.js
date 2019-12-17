@@ -1,25 +1,18 @@
 import React from 'react'
-import 'react-bulma-components/dist/react-bulma-components.min.css';
+import 'bulma'
 import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
 import Navigation from "./navigation";
 import '../styles/layout.css'
-import Columns from 'react-bulma-components/src/components/columns'
 
 const Layout = (props) => (
-    <Columns className="is-centered bg fill">
-        <Columns.Column
-                        tablet={{
-                            size: 'three-quarters',
-                        }}
-                        desktop={{
-                            size: 'two-thirds',
-                        }}
+    <div className="columns is-centered bg fill ">
+        <div className="column is-three-quarters-tablet is-two-thirds-desktop column-bg"
         >
             <Navigation/>
 
             {props.children}
-        </Columns.Column>
-    </Columns>
+        </div>
+    </div>
 )
 
 export default Layout
