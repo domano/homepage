@@ -5,6 +5,7 @@ import 'bulma'
 import Layout from "../components/layout";
 import Reveal from "react-reveal/Reveal";
 import Talk from "../components/talk";
+import {Fade} from "react-reveal";
 
 const Videos = [{
     title: "Warum Go?",
@@ -22,12 +23,10 @@ const Videos = [{
 const Home = () => (
     <Layout>
         <section className="section">
-            <div className="tile is-ancestor is-vertical" style={{
-                overflowX: "hidden",
-                overflowY: "auto"
-            }}>
-
-                {Videos.map(e => <Reveal key={e.url} ><Talk url={e.url} title={e.title}/></Reveal>)}
+            <div className="tile is-ancestor is-vertical" >
+                <Fade>
+                {Videos.map(e => <Talk url={e.url} title={e.title}/>)}
+                </Fade>
             </div>
         </section>
     </Layout>
