@@ -4,6 +4,7 @@ import 'bulma'
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithub} from '@fortawesome/fontawesome-free-brands';
+import {motion} from "framer-motion";
 
 
 function Navigation(props) {
@@ -27,7 +28,7 @@ function Navigation(props) {
             </div>
             </div>
         </div>
-        <div className={menuActive ? "is-active" : "" + " navbar-menu"}>
+        <motion.div className={menuActive?" is-active":"navbar-menu"} initial={false} animate={menuActive?{opacity:1}:{opacity:0}}>
             <div className="navbar-start">
             <div className="navbar-item">
                 <Link href="/">
@@ -35,8 +36,8 @@ function Navigation(props) {
                 </Link>
             </div>
             <div className="navbar-item">
-                <Link href="/talks">
-                    <a>Talks</a>
+                <Link href="/portfolio">
+                    <a>Portfolio</a>
                 </Link>
             </div>
             </div>
@@ -44,7 +45,7 @@ function Navigation(props) {
         <a className="navbar-item" href="https://github.com/domano">
                 <FontAwesomeIcon icon={faGithub}/>
         </a></div>
-        </div>
+        </motion.div>
     </div>;
 }
 

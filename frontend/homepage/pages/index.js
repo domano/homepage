@@ -1,7 +1,6 @@
 import React from 'react'
 import 'bulma'
 import '../styles/layout.css'
-import Layout from '../components/layout'
 import Skills from "../components/skills";
 import {
     faChalkboardTeacher,
@@ -10,33 +9,33 @@ import {
     faProjectDiagram,
     faSitemap
 } from "@fortawesome/fontawesome-free-solid";
-import {Fade, Slide, Zoom} from "react-reveal";
+import {motion} from "framer-motion";
 
 const skills = [
     {
         text: "Entwickler",
         icon: faCode,
-        tags:["Go","Javascript", "Docker","Kafka","Funktionale Programmierung", "Flutter", "Dart", "Java", "Kubernetes", "React"]
+        tags: ["Go", "Javascript", "Docker", "Kafka", "Funktionale Programmierung", "Flutter", "Dart", "Java", "Kubernetes", "React"]
     },
     {
         text: "Architekt",
         icon: faProjectDiagram,
-        tags:["Microservices", "Cloud", "Event-driven Architecture", "CI","CD"]
+        tags: ["Microservices", "Cloud", "Event-driven Architecture", "CI", "CD"]
     },
     {
         text: "Consultant",
         icon: faHandsHelping,
-        tags:["Digitalisierung", "IT-Audits", "Cloud-Migration"]
+        tags: ["Digitalisierung", "IT-Audits", "Cloud-Migration"]
     },
     {
         text: "Trainer",
         icon: faChalkboardTeacher,
-        tags:["Go", "Microservices", "Maßgeschneiderte Workshops"]
+        tags: ["Go", "Microservices", "Maßgeschneiderte Workshops"]
     },
     {
         text: "Product Owner",
         icon: faSitemap,
-        tags:["PSPO 1", "Scrum", "Kanban"]
+        tags: ["PSPO 1", "Scrum", "Kanban"]
     },
 ]
 
@@ -56,14 +55,11 @@ function Hello() {
 }
 
 const Home = () => (
-    <Layout>
-        <Zoom>
-            <Hello/>
-        </Zoom>
-        <Zoom bottom>
-            <Skills skills={skills}/>
-        </Zoom>
-    </Layout>
+    <motion.div initial={{ opacity: 0, x:200}} animate={{opacity:1,x:0}} exit={{transition: {staggerChildren: 0.1}, opacity: 0}}>
+        <Hello/>
+        <br/>
+        <Skills skills={skills}/>
+    </motion.div>
 
 )
 

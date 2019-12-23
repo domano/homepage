@@ -1,11 +1,10 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Fade, Slide} from "react-reveal";
 
 function Skills({skills}) {
     return (
         <div className="box has-shadow">
-            <div className="columns is-centered">
+            <div className="columns is-multiline is-centered">
                 {skills.map(
                     e => <div className="column has-text-centered">
                         <span className="icon is-large">
