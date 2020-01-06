@@ -57,7 +57,7 @@ function Hello() {
 }
 
 const Home = () => (
-    <motion.div initial={{ opacity: 0, x:200}} animate={{opacity:1,x:0}} exit={{transition: {staggerChildren: 0.1}, opacity: 0}}>
+    <motion.div initial={{ opacity: 0, x:100}} animate={{opacity:1,x:0}} exit={{transition: {staggerChildren: 0.1}, opacity: 0}}>
         <Hello/>
         <br/>
         <Skills skills={skills}/>

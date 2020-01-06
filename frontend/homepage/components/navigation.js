@@ -2,8 +2,27 @@ import React from 'react';
 import Link from 'next/link'
 import 'bulma'
 
+import {motion} from "framer-motion";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithub, faXing, faLinkedin} from '@fortawesome/fontawesome-free-brands';
+
+const topAnimation = {
+    start: {
+    },
+    end: {
+        transition: {
+            staggerChildren: 0.1,
+        }
+    },
+    transition: {
+        type: "tween",
+    }
+}
+
+const iconAnimation = {
+    start: {y:-100},
+    end: {y:0}
+}
 
 
 function Navigation() {
@@ -25,17 +44,17 @@ function Navigation() {
                     </Link>
                 </div>
             </div>
-            <div className="navbar-end">
-                <a className="navbar-item is-size-3" href="https://github.com/domano">
+            <motion.div initial="start" animate="end" variants={topAnimation} className="navbar-end">
+                <motion.a variants={iconAnimation} className="navbar-item is-size-3" href="https://github.com/domano">
                     <FontAwesomeIcon icon={faGithub}/>
-                </a>
-                <a className="navbar-item is-size-3" href="https://www.xing.com/profile/Dino_Omanovic2/cv">
+                </motion.a>
+                <motion.a variants={iconAnimation} className="navbar-item is-size-3" href="https://www.xing.com/profile/Dino_Omanovic2/cv">
                     <FontAwesomeIcon icon={faXing}/>
-                </a>
-                <a className="navbar-item is-size-3" href="https://www.linkedin.com/in/dino-omanovic/">
+                </motion.a>
+                <motion.a variants={iconAnimation} className="navbar-item is-size-3" href="https://www.linkedin.com/in/dino-omanovic/">
                     <FontAwesomeIcon icon={faLinkedin}/>
-                </a>
-            </div>
+                </motion.a>
+            </motion.div>
         </div>
     </div>;
 }
