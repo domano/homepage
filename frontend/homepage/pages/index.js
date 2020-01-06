@@ -10,6 +10,8 @@ import {
     faSitemap
 } from "@fortawesome/fontawesome-free-solid";
 import {motion} from "framer-motion";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub} from "@fortawesome/fontawesome-free-brands";
 
 const skills = [
     {

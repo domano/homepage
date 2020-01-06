@@ -1,43 +1,16 @@
 .fill {
     display: flex;
     flex-direction: row;
-align-items: stretch;
+    align-items: stretch;
 }
 
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-o-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+body {
+    background-color: #381d2a;
+    min-height: 101vh; /* Fills the background!*/
+    margin: 0px;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233e6990' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-body{
-    background: linear-gradient(270deg, #387d6b, #202d4e, #853935);
-    background-size: 600% 600%;
-    -webkit-animation: AnimationName 42s ease infinite;
-    -moz-animation: AnimationName 42s ease infinite;
-    -o-animation: AnimationName 42s ease infinite;
-    animation: AnimationName 42s ease infinite;
-    width: 100%;
-    min-height: 100vh;
-    font-family: Arial, Helvetica;
-    overflow:hidden;
-    -webkit-font-smoothing: antialiased;
-}
 .column-bg {
     /*background-color: hsla(0,0%,100%,.5);*/
     margin-top: 1em;
