@@ -1,22 +1,63 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {motion} from "framer-motion";
+import {
+    faChalkboardTeacher,
+    faCode,
+    faHandsHelping,
+    faProjectDiagram,
+    faSitemap
+} from "@fortawesome/fontawesome-free-solid";
 
-function Skills({skills}) {
+const skill = {
+    start: {opacity:0, y:-20},
+    end: (i) => ({opacity:1, y:0, transition:{delay:i*0.3}}),
+    leave: {opacity:0}
+}
+
+function Skills({variants}) {
     return (
-        <div className="box has-shadow">
+        <motion.div variants={variants} className="box has-shadow">
             <div className="columns is-multiline is-centered">
                 {skills.map(
-                    e => <div className="column has-text-centered">
-                        <span className="icon is-large">
+                    (e, i) => <motion.div custom={i} variants={skill} initial="start" animate="end" exit="leave" className="column has-text-centered">
+                        <motion.span className="icon is-large">
                             <FontAwesomeIcon size={"3x"} icon={e.icon}/>
-                        </span>
-                        <p className={"is-size-4"}>{e.text}</p>
-                        {e.tags.map(tag => <span className="tag is-rounded">{tag}</span>)}
-                    </div>
+                        </motion.span>
+                        <motion.p className={"is-size-4"}>{e.text}</motion.p>
+                        {e.tags.map((tag) => <span className="tag is-rounded">{tag}</span>)}
+                    </motion.div>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 }
 
+const skills = [
+    {
+        text: "Entwickler",
+        icon: faCode,
+        tags: ["Go", "Javascript", "Docker", "Kafka", "Funktionale Programmierung", "Flutter", "Dart", "Java", "Kubernetes", "React"]
+    },
+    {
+        text: "Architekt",
+        icon: faProjectDiagram,
+        tags: ["Microservices", "Cloud", "Event-driven Architecture", "CI", "CD"]
+    },
+    {
+        text: "Consultant",
+        icon: faHandsHelping,
+        tags: ["Digitalisierung", "IT-Audits", "Cloud-Migration"]
+    },
+    {
+        text: "Trainer",
+        icon: faChalkboardTeacher,
+        tags: ["Go", "Microservices", "Maßgeschneiderte Workshops"]
+    },
+    {
+        text: "Product Owner",
+        icon: faSitemap,
+        tags: ["PSPO 1", "Scrum", "Kanban"]
+    },
+]
 export default Skills;

@@ -10,57 +10,82 @@ import {
     faSitemap
 } from "@fortawesome/fontawesome-free-solid";
 import {motion} from "framer-motion";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub} from "@fortawesome/fontawesome-free-brands";
 
-const skills = [
-    {
-        text: "Entwickler",
-        icon: faCode,
-        tags: ["Go", "Javascript", "Docker", "Kafka", "Funktionale Programmierung", "Flutter", "Dart", "Java", "Kubernetes", "React"]
-    },
-    {
-        text: "Architekt",
-        icon: faProjectDiagram,
-        tags: ["Microservices", "Cloud", "Event-driven Architecture", "CI", "CD"]
-    },
-    {
-        text: "Consultant",
-        icon: faHandsHelping,
-        tags: ["Digitalisierung", "IT-Audits", "Cloud-Migration"]
-    },
-    {
-        text: "Trainer",
-        icon: faChalkboardTeacher,
-        tags: ["Go", "Microservices", "Maßgeschneiderte Workshops"]
-    },
-    {
-        text: "Product Owner",
-        icon: faSitemap,
-        tags: ["PSPO 1", "Scrum", "Kanban"]
-    },
-]
+const imgAnimation = {
+    start: {opacity: 0, scale: 0},
+    end: {opacity: 1, scale: 1, transition: {
+            type: "tween",
+            duration: 0.7,
+            delay: 1
+        },},
+    leave: {opacity: 0, scale: 0},
+    transition: {
+        type: "tween",
+    }
+}
 
-function Hello() {
-    return <div className="box has-shadow">
+const helloAnimation = {
+    start: {opacity: 0, x: 500},
+    end: {opacity: 1, x: 0, transition: {
+            type: "tween",
+            duration: 0.7
+        },},
+    leave: {opacity: 0, x: -500},
+}
+
+const iAmAnimation = {
+    start: {opacity: 0, x: -500},
+    end: {
+        opacity: 1, x: 0, transition: {
+            type: "tween",
+            duration: 0.7,
+            delay: 0.5
+        },
+    },
+    leave: {opacity: 0, x: 500},
+}
+
+const topAnimation = {
+    start: {
+        opacity: 0
+    },
+    end: {
+        opacity: 1,
+    },
+    leave: {
+        opacity: 0
+    },
+    transition: {
+        type: "tween",
+    }
+}
+
+function Hello({variants}) {
+    return <motion.div variants={variants} className="box has-shadow">
         <div className="columns is-vcentered">
             <div className="column">
-                <h1 className={"is-size-1 has-text-centered"}>Hallo! <br/>Ich bin Dino</h1>
+                <motion.h1  variants={helloAnimation} initial="start" animate="end" exit="leave"
+                           className={"is-size-1 has-text-centered"}>Hallo!
+                </motion.h1>
+                <br/>
+                <motion.h1 variants={iAmAnimation} initial="start" animate="end" exit="leave"
+                           className={"is-size-1 has-text-centered"}>Ich bin Dino
+                </motion.h1>
             </div>
-            <div className="column">
+            <motion.div variants={imgAnimation} initial="start" animate="end" exit="leave" className="column">
                 <figure className="image is-4by3 ">
                     <img className="is-rounded fa-border" src="/landing.jpg" alt={"Ich"}/>
                 </figure>
-            </div>
+            </motion.div>
         </div>
-    </div>;
+    </motion.div>;
 }
 
 const Home = () => (
-    <motion.div initial={{ opacity: 0, x:100}} animate={{opacity:1,x:0}} exit={{transition: {staggerChildren: 0.1}, opacity: 0}}>
-        <Hello/>
-        <br/>
-        <Skills skills={skills}/>
+    <motion.div initial="start" animate="end" exit="leave" variants={topAnimation}>
+        <Hello variants={topAnimation}/>
+        <motion.br variants={topAnimation}/>
+        <Skills variants={topAnimation}/>
     </motion.div>
 
 )
