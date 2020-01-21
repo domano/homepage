@@ -30,13 +30,13 @@ const content = [
     },
     {
         title: "Go Basics Kurs",
-        subtitle: "Kleine kostenlose Einführung in Go mit Codebeispiele und Aufgaben.",
+        subtitle: "Kleine kostenlose Einführung in Go mit Codebeispielen und Aufgaben.",
         url: "https://github.com/domano/go-intro-course",
         thumbnail: faGithubSquare
     },
     {
         title: "Go Webservice Kurs",
-        subtitle: "Schnelle Einführung in Go mit einem Fokus auf die Programmerung von Webservices.",
+        subtitle: "Schnelle Einführung in Go mit einem Fokus auf die Programmierung von Webservices.",
         url: "https://github.com/domano/go-web-course",
         thumbnail: faGithubSquare
     },

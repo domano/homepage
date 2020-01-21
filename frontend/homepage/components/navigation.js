@@ -28,19 +28,16 @@ const iconAnimation = {
 function Navigation() {
     return <div className="navbar has-shadow"
     >
-        <div className={"navbar-menu"}>
-            <div className="navbar-start">
-                <a className="navbar-item" href="/">
-                    <img src="/avatar.png" alt="gomano.de"/>
-                </a>
+        <div className="navbar-menu">
+            <div className="navbar-start is-multiline">
                 <div className="navbar-item">
                     <Link href="/">
-                        <a>Home</a>
+                        <a className="button has-background-light">Home</a>
                     </Link>
                 </div>
                 <div className="navbar-item">
                     <Link href="/portfolio">
-                        <a>Portfolio</a>
+                        <a className="button has-background-light">Portfolio</a>
                     </Link>
                 </div>
             </div>

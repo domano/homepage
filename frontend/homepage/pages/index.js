@@ -2,23 +2,16 @@ import React from 'react'
 import 'bulma'
 import '../styles/layout.css'
 import Skills from "../components/skills";
-import {
-    faChalkboardTeacher,
-    faCode,
-    faHandsHelping,
-    faProjectDiagram,
-    faSitemap
-} from "@fortawesome/fontawesome-free-solid";
 import {motion} from "framer-motion";
 
 const imgAnimation = {
-    start: {opacity: 0, scale: 0},
-    end: {opacity: 1, scale: 1, transition: {
+    start: {opacity: 0,scale:0},
+    end: {opacity: 1, scale:1, transition: {
             type: "tween",
             duration: 0.7,
             delay: 1
         },},
-    leave: {opacity: 0, scale: 0},
+    leave: {opacity: 0, },
     transition: {
         type: "tween",
     }
@@ -72,10 +65,10 @@ function Hello({variants}) {
                            className={"is-size-1 has-text-centered"}>Ich bin Dino
                 </motion.h1>
             </div>
-            <motion.div variants={imgAnimation} initial="start" animate="end" exit="leave" className="column">
-                <figure className="image is-4by3 ">
-                    <img className="is-rounded fa-border" src="/landing.jpg" alt={"Ich"}/>
-                </figure>
+            <motion.div className="column">
+                <motion.figure className="image">
+                    <motion.img variants={imgAnimation} initial="start" animate="end" exit="leave" src="/landing.png" alt={"Ich"}/>
+                </motion.figure>
             </motion.div>
         </div>
     </motion.div>;

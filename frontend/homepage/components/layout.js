@@ -11,6 +11,8 @@ const Layout = (props) => (
             <Navigation/>
             <br/>
             {React.Children.map(props.children, (e) => <div>{e} <br/></div>)}
+            <br/>
+            <div className="level-right has-text-grey-light is-text">Impressum: Dino Omanovic Röckumstr. 98, 53121 Bonn</div>
         </div>
     </div>
 )
