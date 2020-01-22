@@ -32,12 +32,12 @@ function Navigation() {
             <div className="navbar-start is-multiline">
                 <div className="navbar-item">
                     <Link href="/">
-                        <a className="button has-background-light">Home</a>
+                        <a className="is-text is-size-5 has-text-black">Home</a>
                     </Link>
                 </div>
                 <div className="navbar-item">
                     <Link href="/portfolio">
-                        <a className="button has-background-light">Portfolio</a>
+                        <a className="is-text is-size-5 has-text-black">Portfolio</a>
                     </Link>
                 </div>
             </div>
