@@ -1,32 +1,42 @@
-import React from 'react'
-import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
-import '../styles/layout.css'
-import 'bulma'
-import Talk from "../components/talk";
-import {faGithub, faGithubSquare} from "@fortawesome/fontawesome-free-brands";
-import {faCode} from "@fortawesome/fontawesome-free-solid";
+import {
+    faGithub,
+    faGithubSquare
+} from "@fortawesome/fontawesome-free-brands";
+import {
+    faHandsHelping
+} from "@fortawesome/fontawesome-free-solid";
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import 'bulma';
+import {
+    motion
+} from "framer-motion";
+import React from 'react';
 import ContentTile from "../components/contentTile";
-import {motion} from "framer-motion";
+import Talk from "../components/talk";
+import '../styles/layout.css';
 
 const talks = [{
-    title: "Warum Go?",
-    url: "BRdRm3wwvjs"
-},
+        title: "Microservice Scalability",
+        url: "mGv79zsJ1K8"
+    }, {
+        title: "Warum Go?",
+        url: "BRdRm3wwvjs"
+    },
     {
         title: "Nebenläufige reaktive Programmierung mit go",
         url: "DsQgf6rgS_s"
-    }
-    , {
+    }, {
         title: "Serverless ohne Vendor Lock-In mit go",
         url: "g-xWLYgeJ-M"
-    }]
+    }
+]
 
-const content = [
-    {
-        title: "tarent Academy Go Workshop",
-        subtitle: "Hier kann man mich für einen Präsenzworkshop buchen. Maßgeschneidert gehe ich auf die Teilnehmer ein, sodass nach dem mehrtägigen Workshop ein gutes Fundament geschaffen ist um weiter mit Go zu arbeiten.",
-        url: "https://www.tarent.de/academy/courses/microservices-mit-go/",
-        thumbnail: faCode
+const content = [{
+        title: "tarent Consulting",
+        subtitle: "Hier können Sie mich für Beratungsleistungen buchen.",
+        url: "https://www.tarent.de/consulting",
+        thumbnail: faHandsHelping,
+
     },
     {
         title: "Go Basics Kurs",
@@ -53,16 +63,56 @@ const content = [
         thumbnail: faGithub
     },
 ]
-const tiles = [...content.map(e => <ContentTile url={e.url} title={e.title} subtitle={e.subtitle}
-                                                thumbnail={e.thumbnail}/>), ...talks.map(e => <Talk url={e.url}
-                                                                                                    title={e.title}/>)]
+const tiles = [...content.map(e => < ContentTile url = {
+                e.url
+            }
+            title = {
+                e.title
+            }
+            subtitle = {
+                e.subtitle
+            }
+            thumbnail = {
+                e.thumbnail
+            }
+            />), ...talks.map(e => <Talk url={e.url}
+            title = {
+                e.title
+            }
+            />)]
 
-const Home = () => (
-    <motion.section initial={{ opacity: 0, x:200}} animate={{opacity:1,x:0}} exit={{transition: {staggerChildren: 0.1}, opacity: 0}}>
-            <div className="tile is-ancestor is-vertical">
-                {tiles.map(e => <motion.div whileHover={{ scale: 1.03 }}>{e}</motion.div>)}
-            </div>
-        </motion.section>
-)
+            const Home = () => ( <
+                    motion.section initial = {
+                        {
+                            opacity: 0,
+                            x: 200
+                        }
+                    }
+                    animate = {
+                        {
+                            opacity: 1,
+                            x: 0
+                        }
+                    }
+                    exit = {
+                        {
+                            transition: {
+                                staggerChildren: 0.1
+                            },
+                            opacity: 0
+                        }
+                    } >
+                    <
+                    div className = "tile is-ancestor is-vertical" > {
+                        tiles.map(e => < motion.div whileHover = {
+                                {
+                                    scale: 1.03
+                                }
+                            } > {
+                                e
+                            } < /motion.div>)} <
+                            /div> <
+                            /motion.section>
+                        )
 
-export default Home
+                        export default Home

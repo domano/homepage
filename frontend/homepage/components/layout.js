@@ -7,7 +7,7 @@ import '../_variables.scss'
 
 const Layout = (props) => (
     <div className="columns is-centered bg fill ">
-        <div className="column is-three-quarters-tablet is-two-thirds-desktop column-bg">
+        <div className="column is-three-quarters-tablet is-two-thirds-desktop column-bg is-paddingless-ver">
             <Navigation/>
             <br/>
             {React.Children.map(props.children, (e) => <div>{e} <br/></div>)}
